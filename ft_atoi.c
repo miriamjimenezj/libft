@@ -1,43 +1,46 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirjimen <mirjimen@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 11:28:02 by mirjimen          #+#    #+#             */
-/*   Updated: 2023/10/21 11:35:53 by mirjimen         ###   ########.fr       */
+/*   Created: 2023/10/21 12:13:41 by mirjimen          #+#    #+#             */
+/*   Updated: 2023/10/21 12:16:08 by mirjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+int	ft_atoi(const char *str)
 {
-	unsigned char	*ptr;
+	int	num;
+	int	neg;
 
-	ptr = (unsigned char *)b;
-	while (len > 0)
+	num = 0;
+	neg = 1;
+	while ((*str >= 9 && *str <= 13) || *str == 32)
+		str++;
+	if (*str == 43 || *str == 45)
 	{
-		len--;
-		*(ptr++) = (unsigned char) c;
+		if (*str == 45)
+			neg *= -1;
+		str++;
 	}
-	return (b);
+	while (*str >= 48 && *str <= 57)
+	{
+		num = num * 10 + (*str - '0');
+		str++;
+	}
+	return (num * neg);
 }
 
 /*
-   int main()
-   {
-   int myArray[5];
+int main() {
+    const char *str = "12345";
+    int num = atoi(str);
 
-// Inicializa todos los elementos de myArray con el valor 0.
-ft_memset(myArray, 0, sizeof(myArray));
+    printf("El número convertido es: %d\n", num);
 
-// Imprime los valores de la matriz.
-for (int i = 0; i < 5; i++) {
-printf("%d ", myArray[i]);
-}
-
-return 0;
+    return 0;
 }
 */

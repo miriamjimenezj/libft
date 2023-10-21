@@ -1,4 +1,16 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mirjimen <mirjimen@student.42madrid>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/21 11:26:30 by mirjimen          #+#    #+#             */
+/*   Updated: 2023/10/21 11:34:16 by mirjimen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "libft.h"
+
 int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
 	size_t	i;
@@ -15,26 +27,26 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 
 /*
 
-int main() {
-    char str1[] = "Hello";
-    char str2[] = "Hello";
-    char str3[] = "World";
+   int main() {
+   char str1[] = "Hello";
+   char str2[] = "Hello";
+   char str3[] = "World";
 
-    int result1 = ft_memcmp(str1, str2, 5);
-    int result2 = ft_memcmp(str1, str3, 5);
+   int result1 = ft_memcmp(str1, str2, 5);
+   int result2 = ft_memcmp(str1, str3, 5);
 
-    if (result1 == 0) {
-        printf("str1 y str2 son iguales.\n");
-    } else {
-        printf("str1 y str2 no son iguales.\n");
-    }
+   if (result1 == 0) {
+   printf("str1 y str2 son iguales.\n");
+   } else {
+   printf("str1 y str2 no son iguales.\n");
+   }
 
-    if (result2 == 0) {
-        printf("str1 y str3 son iguales.\n");
-    } else {
-        printf("str1 y str3 no son iguales.\n");
-    }
+   if (result2 == 0) {
+   printf("str1 y str3 son iguales.\n");
+   } else {
+   printf("str1 y str3 no son iguales.\n");
+   }
 
-    return 0;
-}
-*/
+   return 0;
+   }
+   */

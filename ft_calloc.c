@@ -1,33 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*   ft_calloc.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirjimen <mirjimen@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 11:22:58 by mirjimen          #+#    #+#             */
-/*   Updated: 2023/10/21 11:23:32 by mirjimen         ###   ########.fr       */
+/*   Created: 2023/10/21 12:37:01 by mirjimen          #+#    #+#             */
+/*   Updated: 2023/10/21 12:42:01 by mirjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "libft.h"
 
-void	ft_bzero(void *s, size_t n)
+void	*ft_calloc(size_t count, size_t size)
 {
-	ft_memset(s, '\0', n);
+	void	*p;
+	size_t	total;
+
+	total = count * size;
+	p = malloc (total);
+	if (!p)
+		return (NULL);
+	ft_bzero(p, total);
+	return (p);
 }
-
-/*
-   int main() {
-   char myString[10] = "aaaaaaaaaa";
-
-   printf("myString: %s\n", myString);
-// Inicializa la cadena myString con ceros.
-ft_bzero(myString, sizeof(myString));
-
-// Imprime la cadena, que ahora debería estar llena de caracteres nulos (ceros).
-printf("myString: %s\n", myString);
-
-return 0;
-}
-*/

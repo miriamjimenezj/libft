@@ -1,43 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirjimen <mirjimen@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 11:27:05 by mirjimen          #+#    #+#             */
-/*   Updated: 2023/10/21 11:27:18 by mirjimen         ###   ########.fr       */
+/*   Created: 2023/10/21 11:42:09 by mirjimen          #+#    #+#             */
+/*   Updated: 2023/10/21 11:48:43 by mirjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+size_t	ft_strlcpy(char *dest, const char *src, size_t size)
 {
+	size_t	srclen;
 	size_t	i;
 
+	srclen = 0;
+	while (src[srclen])
+		srclen++;
+	if (size == 0)
+		return (srclen);
 	i = 0;
-	if (!dest && !src)
-		return (NULL);
-	while (i < n)
+	while (src[i] && i < (size - 1))
 	{
-		((unsigned char *)dest)[i] = ((unsigned char *)src)[i];
+		dest[i] = src[i];
 		i++;
 	}
-	return (dest);
+	dest[i] = '\0';
+	return (srclen);
 }
 
 /*
    int main() {
-   char source[] = "Hello, World!";
-   char destination[20];
+   char dest[20];
+   const char *src = "Hello, World!";
 
-// Copia los datos desde source a destination.
-ft_memcpy(destination, source, 5);
+   ft_strlcpy(dest, src, 5);
 
-// Imprime el contenido de destination.
-printf("destination: %s\n", destination);
+   printf("Origen: %s\n", src);
+   printf("Destino: %s\n", dest);
 
-return 0;
-}
-*/
+   return 0;
+   }
+   */

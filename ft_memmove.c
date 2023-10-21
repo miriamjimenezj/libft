@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mirjimen <mirjimen@student.42madrid>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/10/21 11:27:34 by mirjimen          #+#    #+#             */
+/*   Updated: 2023/10/21 11:35:26 by mirjimen         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t len)
@@ -28,15 +40,16 @@ void	*ft_memmove(void *dest, const void *src, size_t len)
 }
 
 /*
-int main() {
-    char str[] = "Hello, World!";
+   int main() {
+   char str[] = "Hello, World!";
 
-    // Mover la cadena "World!" tres posiciones a la izquierda dentro de la misma cadena.
-    ft_memmove(str + 2, str +  1+ 0, strlen(str) - 1);
+// Mover la cadena "World!" tres posiciones 
+// a la izquierda dentro de la misma cadena.
+ft_memmove(str + 2, str +  1+ 0, strlen(str) - 1);
 
-    // Imprimir la cadena modificada.
-    printf("str: %s\n", str);
+// Imprimir la cadena modificada.
+printf("str: %s\n", str);
 
-    return 0;
+return 0;
 }
 */

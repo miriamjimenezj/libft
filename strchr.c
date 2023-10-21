@@ -1,41 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memchr.c                                        :+:      :+:    :+:   */
+/*   strchr.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirjimen <mirjimen@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 11:25:55 by mirjimen          #+#    #+#             */
-/*   Updated: 2023/10/21 11:26:13 by mirjimen         ###   ########.fr       */
+/*   Created: 2023/10/21 12:06:52 by mirjimen          #+#    #+#             */
+/*   Updated: 2023/10/21 12:10:56 by mirjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memchr(const void *s, int c, size_t n)
+char	*ft_strchr(const char *s, int c)
 {
-	const char	*sc;
-	size_t		i;
+	char	find;
+	int		i;
 
-	sc = (const char *)s;
-	i = -1;
-	while (++i < n)
-		if (*(sc + i) == (char)c)
-			return ((void *)sc + i);
+	find = (unsigned char)c;
+	i = 0;
+	while (s[i])
+	{
+		if (s[i] == find)
+			return ((char *)s + i);
+		i++;
+	}
+	if (s[i] == find)
+		return ((char *)s + i);
 	return (NULL);
 }
 
 /*
    int main() {
-   char str[] = "Hello, World!";
-   char *result;
+   const char *str = "Hello, World!";
+   int ch = 'o';
 
-   result = ft_memchr(str, 'W', strlen(str));
+   char *result = ft_strchr(str, ch);
 
    if (result != NULL) {
-   printf("Se encontró 'W' en la posición %ld.\n", result - str);
+   printf("Primera aparición de '%c' encontrada
+   en la posición %ld\n", ch, result - str);
    } else {
-   printf("No se encontró 'W' en la cadena.\n");
+   printf("'%c' no encontrado en la cadena.\n", ch);
    }
 
    return 0;
