@@ -1,38 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirjimen <mirjimen@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 12:47:55 by mirjimen          #+#    #+#             */
-/*   Updated: 2023/11/19 12:21:11 by mirjimen         ###   ########.fr       */
+/*   Created: 2023/11/12 16:56:11 by mirjimen          #+#    #+#             */
+/*   Updated: 2023/11/12 16:57:45 by mirjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_strjoin(char const *s1, char const *s2)
 {
-	unsigned int	i;
-	char			*str;
+	char	*s3;
+	size_t	i;
 
-	i = 0;
-	if (start >= ft_strlen(s))
-	{
-		str = ft_calloc(1, sizeof(char));
-		if (!str)
-			return (NULL);
-		return (str);
-	}
-	if (ft_strlen(s) - start < len)
-		len = ft_strlen(s) - start;
-	str = ft_calloc(sizeof(char), len + 1);
-	if (!str)
+	if (!s1 || !s2)
 		return (NULL);
-	while (s[start + i] && i < len)
-	{
-		str[i] = s[start + i];
-		i++;
-	}
-	return (str);
+	s3 = (char *)ft_calloc(sizeof(*s3), (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!s3)
+		return (NULL);
+	i = 0;
+	while (*s1)
+		s3[i++] = *s1++;
+	while (*s2)
+		s3[i++] = *s2++;
+	return (s3);
 }

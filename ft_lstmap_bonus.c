@@ -1,38 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_substr.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirjimen <mirjimen@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 12:47:55 by mirjimen          #+#    #+#             */
-/*   Updated: 2023/11/19 12:21:11 by mirjimen         ###   ########.fr       */
+/*   Created: 2023/11/12 17:17:44 by mirjimen          #+#    #+#             */
+/*   Updated: 2023/11/12 17:18:46 by mirjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	unsigned int	i;
-	char			*str;
+	t_list	*new;
+	t_list	*elem;
 
-	i = 0;
-	if (start >= ft_strlen(s))
-	{
-		str = ft_calloc(1, sizeof(char));
-		if (!str)
-			return (NULL);
-		return (str);
-	}
-	if (ft_strlen(s) - start < len)
-		len = ft_strlen(s) - start;
-	str = ft_calloc(sizeof(char), len + 1);
-	if (!str)
+	if (!lst || !f)
 		return (NULL);
-	while (s[start + i] && i < len)
+	new = 0;
+	while (lst)
 	{
-		str[i] = s[start + i];
-		i++;
+		elem = ft_lstnew(f(lst->content));
+		if (!elem)
+		{
+			ft_lstclear(&new, del);
+			return (NULL);
+		}
+		ft_lstadd_back(&new, elem);
+		lst = lst->next;
 	}
-	return (str);
+	return (new);
 }

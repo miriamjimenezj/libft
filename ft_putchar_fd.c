@@ -1,33 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mirjimen <mirjimen@student.42madrid>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/10/21 11:28:47 by mirjimen          #+#    #+#             */
-/*   Updated: 2023/11/12 18:05:38 by mirjimen         ###   ########.fr       */
+/*   Created: 2023/11/12 17:05:19 by mirjimen          #+#    #+#             */
+/*   Updated: 2023/11/12 17:05:44 by mirjimen         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
-size_t	ft_strlen(const char *s)
+void	ft_putchar_fd(char c, int fd)
 {
-	size_t	i;
-
-	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	write (fd, &c, 1);
 }
-/*
-   int main(void)
-   {
-   int n;
-   char str[] = "Miriam";
-
-   n = ft_strlen(str);
-   printf("Numero de letras en %s: %d \n", str, n);
-   return(0);
-   }
-   */
